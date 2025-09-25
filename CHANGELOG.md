@@ -32,6 +32,8 @@ since 0.4.1, and this project adheres to [Semantic Versioning](https://semver.or
 - Fix a Dangerzone error that manifested in recent Debian-based environments
   that included both PySide6 and PySide2 libraries
   ([#1218](https://github.com/freedomofpress/dangerzone/issues/1218))
+- Question dialogs now show a question mark instead of an alert
+  ([#1198](https://github.com/freedomofpress/dangerzone/issues/1198))
 
 ### Development changes
 
