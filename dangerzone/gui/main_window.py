@@ -395,6 +395,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.startup_thread.succeeded.connect(self.log_window.handle_startup_success)
         self.startup_thread.succeeded.connect(self.show_conversion_widget)
         self.startup_thread.failed.connect(self.status_bar.handle_startup_error)
+        self.startup_thread.failed.connect(self.waiting_widget.handle_failure)
 
         task_machine_init.starting.connect(self.status_bar.handle_task_machine_init)
         task_machine_init.starting.connect(self.log_window.handle_task_machine_init)
@@ -705,6 +706,9 @@ class WaitingWidget(QtWidgets.QWidget):
             "Welcome! I'm afraid you gonna have to wait a bit.<br>"
             "Check the bottom-right corner for a progress report"
         )
+
+    def handle_failure(self, msg: str) -> None:
+        self.label.setText("Dangerzone encountered an error:<br><br><b>msg</b>")
 
 
 class ConversionWidget(QtWidgets.QWidget):
